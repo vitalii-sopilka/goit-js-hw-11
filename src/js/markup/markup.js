@@ -1,6 +1,6 @@
 export function makeMarkup (arrayPhotos) {
 
-return arrayPhotos.data.hits.map( (photo) => {
+return arrayPhotos.data.hits.map((photo) => {
   return `
     <a href="${photo.largeImageURL}">
       <div class="photo-card container-inner">
@@ -22,5 +22,5 @@ return arrayPhotos.data.hits.map( (photo) => {
       </div>
     </a>
   `
-  } ).join("")
+  }).join("")
 }
