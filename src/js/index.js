@@ -1,9 +1,9 @@
 import Notiflix from 'notiflix';
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
-import { getPhotos } from "./api/api";
-import { makeMarkup } from "./markup/markup";
+import { getPhotos } from './api/api';
+import { makeMarkup } from './markup/markup';
 
 const formEl = document.querySelector('.search-form');
 const inputEl = document.querySelector('input');
