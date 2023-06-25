@@ -16,11 +16,10 @@ let lastPage = 0;
 formEl.addEventListener('submit', onSubmit);
 
 async function onSubmit(event) {
-
   event.preventDefault();
   let inputValue = encodeURIComponent(inputEl.value);
+
   if(inputValue.trim() !== '') {
-    
     const arrayPhotos = await getPhotos(inputValue, currentPage);
     galleryEl.innerHTML = makeMarkup(arrayPhotos);
     lastPage = Math.ceil(arrayPhotos.data.totalHits / 40);
@@ -56,11 +55,9 @@ async function onSubmit(event) {
 btnLeadMoreEl.addEventListener('click', loadMore);
 
 async function loadMore () {
-
   let inputValue = encodeURIComponent(inputEl.value);
-  const morePhotos = await getPhotos(inputValue, currentPage+1);
+  const morePhotos = await getPhotos(inputValue, currentPage + 1);
   currentPage = morePhotos.config.params.page;
-
   galleryEl.innerHTML = galleryEl.innerHTML + makeMarkup(morePhotos);
 
   new SimpleLightbox('.gallery a', {
@@ -68,22 +65,25 @@ async function loadMore () {
   });
 
   const { height: cardHeight } = document
-  .querySelector(".gallery")
+  .querySelector('.gallery')
   .firstElementChild.getBoundingClientRect();
 
   window.scrollBy({
     top: cardHeight * 2,
-    behavior: "smooth",
+    behavior: 'smooth',
   });
 
   if (currentPage === lastPage) {
-    Notiflix.Notify.info("We're sorry, but you've reached the end of search results.", {
-      width: '500px', 
-      svgSize: '120px',
-      position: 'right-bottom', 
-    });
+    Notiflix.Notify.info(
+      "We're sorry, but you've reached the end of search results.",
+      {
+        width: '500px', 
+        svgSize: '120px',
+        position: 'right-bottom', 
+      }
+    );
     btnLeadMoreEl.classList.add('hidden');
-    
+
     return;
-  };
+  }
 }
