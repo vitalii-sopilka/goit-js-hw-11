@@ -9,6 +9,7 @@ const formEl = document.querySelector('.search-form');
 const inputEl = document.querySelector('input');
 const galleryEl = document.querySelector('.gallery');
 export const btnLeadMoreEl = document.querySelector('.load-more');
+
 let currentPage = 1;
 let lastPage = 0;
 
